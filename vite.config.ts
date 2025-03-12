@@ -6,10 +6,13 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3000', // Flask backend URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
+    },
+    watch: {
+      ignored: ['**/node_modules/**', '**/venv/**'], // Ignore unnecessary directories
     },
   },
   build: {

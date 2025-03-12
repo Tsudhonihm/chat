@@ -22,8 +22,10 @@ print("Model and tokenizer loaded successfully!")
 @app.route('/message', methods=['POST'])
 def message():
     try:
+        # Parse JSON payload from the request
         data = request.get_json()
         
+        # Validate input
         if not data or 'message' not in data:
             return jsonify({'error': 'Message cannot be empty'}), 400
         
