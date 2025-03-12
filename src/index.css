@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-handwritten: 'Indie Flower', cursive;
+}
+
+h1 {
+  font-family: var(--font-handwritten);
+}
+
+/* Favicon animation */
+@keyframes faviconFade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+link[rel="icon"] {
+  animation: faviconFade 2s ease-in-out infinite;
+}
+
+.auto-type {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2563eb;
+  min-height: 2rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}

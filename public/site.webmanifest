@@ -1,0 +1,20 @@
+{
+  "name": "Anything Boes Chat",
+  "short_name": "Chat with Bot",
+  "icons": [
+    {
+      "src": "/favicon.gif",
+      "sizes": "48x48",
+      "type": "image/gif"
+    },
+    {
+      "src": "/favicon2.gif",
+      "sizes": "48x48",
+      "type": "image/gif"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff"
+}
