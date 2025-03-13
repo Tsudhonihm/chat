@@ -3,6 +3,7 @@ import axios from 'axios';
 import { MessageCircle, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Custom Hand-Drawn Icons
 const HandDrawnFacebook = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4 8c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v8c0 2.2-1.8 4-4 4h-8c-2.2 0-4-1.8-4-4v-8z" />
@@ -18,6 +19,7 @@ const HandDrawnInstagram = () => (
   </svg>
 );
 
+// Message Interface
 interface Message {
   id: string;
   sender: string;
@@ -25,7 +27,7 @@ interface Message {
   timestamp: Date;
 }
 
-// Update this with your Render URL once deployed
+// API URL Configuration
 const API_URL = import.meta.env.PROD 
   ? 'https://anything-boes-chat.onrender.com'
   : '/api';
@@ -36,6 +38,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // Add a new message to the chat
   const addMessage = (sender: string, message: string) => {
     setMessages(prev => [...prev, { 
       id: Math.random().toString(36).substr(2, 9),
@@ -45,6 +48,7 @@ function App() {
     }]);
   };
 
+  // Handle sending a message
   const handleSendMessage = async () => {
     const message = userInput.trim();
     if (!message || isLoading) return;
@@ -64,6 +68,7 @@ function App() {
     }
   };
 
+  // Auto-scroll to the latest message
   useEffect(() => {
     if (messagesContainerRef.current) {
       const scrollContainer = messagesContainerRef.current;
@@ -177,11 +182,22 @@ function App() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden"
-        >
+        > 
+          
           {/* Chat Header */}
           <div className="bg-blue-600 p-3 flex items-center gap-2">
-            <MessageCircle className="text-white" size={20} />
-            <h2 className="text-lg font-semibold text-white">Chat with Bot</h2>
+            {/* Fixed Message Bubble Icon */}
+            <motion.div 
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.9 }}
+            >
+              <MessageCircle 
+                className="text-white align-middle" 
+                size={20} 
+                style={{ marginRight: '8px', transform: 'rotate(0deg)' }} 
+              />
+            </motion.div>
+            <h2 className="text-lg font-semibold text-white align-middle">Chat with Bot</h2>
           </div>
 
           {/* Messages Container */}
@@ -202,8 +218,8 @@ function App() {
                   <div 
                     className={`p-3 rounded-lg max-w-[80%] ${
                       msg.sender === 'You' 
-                        ? 'bg-blue-500 text-white' 
-                        : 'bg-gray-100 text-gray-800'
+                        ? 'border-2 border-blue-500 bg-transparent text-black' // Outline blue bubble with black text
+                        : 'bg-gray-100 text-gray-800' // Light gray background with dark gray text
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
@@ -219,6 +235,7 @@ function App() {
                 </motion.div>
               ))}
             </AnimatePresence>
+
             {isLoading && (
               <motion.div 
                 initial={{ opacity: 0 }}
@@ -236,7 +253,7 @@ function App() {
               </motion.div>
             )}
           </div>
-          
+
           {/* Input Area */}
           <div className="border-t p-4 bg-gray-50">
             <div className="flex gap-2">
@@ -246,7 +263,7 @@ function App() {
                 onChange={(e) => setUserInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black placeholder-gray-500"
                 disabled={isLoading}
               />
               <motion.button
@@ -263,7 +280,9 @@ function App() {
           </div>
         </motion.div>
       </div>
-      <footer className="text-center text-gray-600 mt-8 pb-4">
+
+      {/* Footer */}
+      <footer className="text-center text-white mt-8 pb-4">
         © 2025 Anything Boes Design Studio. All rights reserved.
       </footer>
     </div>
