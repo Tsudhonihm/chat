@@ -29,7 +29,7 @@ interface Message {
 
 // API URL Configuration
 const API_URL = import.meta.env.PROD 
-  ? 'https://chatbotlogic-fcsx0ob2z-peter-boes-projects.vercel.app/'
+  ? 'https://chatbotlogic-fcsx0ob2z-peter-boes-projects.vercel.app'
   : '/api';
 
 function App() {
