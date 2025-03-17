@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-// After
-
-=======
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { MessageCircle, Send } from 'lucide-react';
@@ -33,15 +28,9 @@ interface Message {
 }
 
 // API URL Configuration
-<<<<<<< HEAD
 const API_URL = import.meta.env.PROD
   ? 'https://anythingboes.web.app/' // Firebase Hosting domain (correct)
   : '/api'; // Local development
-=======
-const API_URL = import.meta.env.PROD 
-  ? 'https://chatbotlogic-inzwv8yuu-peter-boes-projects.vercel.app'
-  : '/api';
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
 
 function App() {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -51,7 +40,6 @@ function App() {
 
   // Add a new message to the chat
   const addMessage = (sender: string, message: string) => {
-<<<<<<< HEAD
     setMessages((prev) => [
       ...prev,
       {
@@ -61,50 +49,24 @@ function App() {
         timestamp: new Date(),
       },
     ]);
-=======
-    setMessages(prev => [...prev, { 
-      id: Math.random().toString(36).substr(2, 9),
-      sender, 
-      message, 
-      timestamp: new Date() 
-    }]);
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
   };
 
   // Handle sending a message
   const handleSendMessage = async () => {
     const message = userInput.trim();
-<<<<<<< HEAD
     if (!message || isLoading) return; // Prevent empty or duplicate submissions
-
     setIsLoading(true); // Show loading indicator
     addMessage('You', message); // Add user's message to the chat
     setUserInput(''); // Clear input field
-
     try {
       // Send the message to the backend and get the bot's response
       const response = await axios.post(`${API_URL}/message`, { message });
       addMessage('Bot', response.data.response); // Add bot's response to the chat
-=======
-    if (!message || isLoading) return;
-
-    setIsLoading(true);
-    addMessage('You', message);
-    setUserInput('');
-
-    try {
-      const response = await axios.post(`${API_URL}/message`, { message });
-      addMessage('Bot', response.data.response);
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
     } catch (error) {
       console.error('Error fetching bot response:', error);
       addMessage('Bot', 'Sorry, I encountered an error. Please try again.');
     } finally {
-<<<<<<< HEAD
       setIsLoading(false); // Ensure loading state is reset
-=======
-      setIsLoading(false);
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
     }
   };
 
@@ -112,11 +74,7 @@ function App() {
   useEffect(() => {
     if (messagesContainerRef.current) {
       const scrollContainer = messagesContainerRef.current;
-<<<<<<< HEAD
       scrollContainer.scrollTop = scrollContainer.scrollHeight; // Scroll to the bottom
-=======
-      scrollContainer.scrollTop = scrollContainer.scrollHeight;
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
     }
   }, [messages]);
 
@@ -129,34 +87,20 @@ function App() {
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-4">
             <div className="flex items-center justify-between">
               {/* Title */}
-<<<<<<< HEAD
               <motion.h1
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-=======
-              <motion.h1 
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                 className="text-3xl font-bold text-white"
               >
                 Welcome to Anything Boes Studio
               </motion.h1>
-
               {/* Social Links */}
               <div className="flex items-center gap-6">
                 <div className="flex gap-4">
-<<<<<<< HEAD
                   <motion.a
                     href="https://www.facebook.com/AnythingBoes/"
                     target="_blank"
-=======
-                  <motion.a 
-                    href="https://www.facebook.com/AnythingBoes/" 
-                    target="_blank" 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-200 transition-colors"
                     whileHover={{ scale: 1.2, rotate: 5 }}
@@ -164,15 +108,9 @@ function App() {
                   >
                     <HandDrawnFacebook />
                   </motion.a>
-<<<<<<< HEAD
                   <motion.a
                     href="https://www.instagram.com/peter_boes1/"
                     target="_blank"
-=======
-                  <motion.a 
-                    href="https://www.instagram.com/peter_boes1/" 
-                    target="_blank" 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-200 transition-colors"
                     whileHover={{ scale: 1.2, rotate: -5 }}
@@ -181,15 +119,9 @@ function App() {
                     <HandDrawnInstagram />
                   </motion.a>
                 </div>
-
                 {/* Larger Penny Button */}
-<<<<<<< HEAD
                 <motion.a
                   href="https://sites.google.com/view/anythingboes/the-boes-base"
-=======
-                <motion.a 
-                  href="https://sites.google.com/view/anything-boes-studio/the-boes-base"
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative group perspective-1000"
@@ -201,11 +133,7 @@ function App() {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tl from-transparent via-amber-200 to-transparent opacity-30" />
                     <div className="absolute inset-2 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center overflow-hidden">
                       <span className="text-amber-100 font-bold text-sm text-center leading-tight">
-<<<<<<< HEAD
                         Visit<br />Boes Hub
-=======
-                        Visit<br/>Boes Hub
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                       </span>
                     </div>
                     <div className="absolute inset-0 rounded-full border-4 border-amber-300 opacity-20" />
@@ -214,7 +142,6 @@ function App() {
               </div>
             </div>
           </div>
-
           {/* Bottom Bar with Centered Content */}
           <div className="flex flex-col items-center justify-center px-6 py-4 border-t border-gray-100 space-y-3">
             {/* Project Description */}
@@ -228,11 +155,9 @@ function App() {
               <span className="mx-2 text-blue-600">( ly Cool )</span>
               Projects
             </motion.div>
-
             {/* AI Text */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
-<<<<<<< HEAD
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: 1,
@@ -241,16 +166,6 @@ function App() {
                 duration: 2,
                 repeat: Infinity,
                 repeatType: 'reverse',
-=======
-              animate={{ 
-                scale: [1, 1.05, 1],
-                opacity: 1
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse"
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
               }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-md text-lg"
             >
@@ -258,18 +173,12 @@ function App() {
             </motion.div>
           </div>
         </div>
-
         {/* Chat Container */}
-<<<<<<< HEAD
         <motion.div
-=======
-        <motion.div 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="bg-white rounded-lg shadow-lg overflow-hidden"
-<<<<<<< HEAD
         >
           {/* Chat Header */}
           <div className="bg-blue-600 p-3 flex items-center gap-2">
@@ -282,42 +191,18 @@ function App() {
                 className="text-white align-middle"
                 size={20}
                 style={{ marginRight: '8px', transform: 'rotate(0deg)' }}
-=======
-        > 
-          
-          {/* Chat Header */}
-          <div className="bg-blue-600 p-3 flex items-center gap-2">
-            {/* Fixed Message Bubble Icon */}
-            <motion.div 
-              whileHover={{ scale: 1.1 }} 
-              whileTap={{ scale: 0.9 }}
-            >
-              <MessageCircle 
-                className="text-white align-middle" 
-                size={20} 
-                style={{ marginRight: '8px', transform: 'rotate(0deg)' }} 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
               />
             </motion.div>
             <h2 className="text-lg font-semibold text-white align-middle">Chat with Bot</h2>
           </div>
-
           {/* Messages Container */}
-<<<<<<< HEAD
           <div
-=======
-          <div 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
             ref={messagesContainerRef}
             className="h-[400px] overflow-y-auto p-4 space-y-4"
           >
             <AnimatePresence>
               {messages.map((msg) => (
-<<<<<<< HEAD
                 <motion.div
-=======
-                <motion.div 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                   key={msg.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -325,45 +210,24 @@ function App() {
                   transition={{ duration: 0.3 }}
                   className={`flex ${msg.sender === 'You' ? 'justify-end' : 'justify-start'}`}
                 >
-<<<<<<< HEAD
                   <div
                     className={`p-3 rounded-lg max-w-[80%] ${
                       msg.sender === 'You'
-=======
-                  <div 
-                    className={`p-3 rounded-lg max-w-[80%] ${
-                      msg.sender === 'You' 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                         ? 'border-2 border-blue-500 bg-transparent text-black' // Outline blue bubble with black text
                         : 'bg-gray-100 text-gray-800' // Light gray background with dark gray text
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-1">
-<<<<<<< HEAD
                       <span className="font-semibold text-sm">{msg.sender}</span>
                       <span className="text-xs opacity-75">{msg.timestamp.toLocaleTimeString()}</span>
-=======
-                      <span className="font-semibold text-sm">
-                        {msg.sender}
-                      </span>
-                      <span className="text-xs opacity-75">
-                        {msg.timestamp.toLocaleTimeString()}
-                      </span>
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                     </div>
                     <p className="break-words">{msg.message}</p>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-<<<<<<< HEAD
             {isLoading && (
               <motion.div
-=======
-
-            {isLoading && (
-              <motion.div 
->>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -379,7 +243,6 @@ function App() {
               </motion.div>
             )}
           </div>
-
           {/* Input Area */}
           <div className="border-t p-4 bg-gray-50">
             <div className="flex gap-2">
@@ -406,7 +269,6 @@ function App() {
           </div>
         </motion.div>
       </div>
-
       {/* Footer */}
       <footer className="text-center text-white mt-8 pb-4">
         © 2025 Anything Boes Design Studio. All rights reserved.
