@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: anything-boes-chat
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.18
+      - key: FLASK_APP
+        value: app.py
+      - key: FLASK_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://earnest-alpaca-16802c.netlify.app/
+      - key: WEB_CONCURRENCY
+        value: 1
+      - key: PYTHON_MAX_THREADS
+        value: 1
+      - key: MAX_WORKERS
+        value: 1
+      - key: HF_MODEL_NAME
+        value: microsoft/DialoGPT-small
+      - key: HF_MAX_LENGTH
+        value: 1000
+      - key: HF_TOP_P
+        value: 0.95
+      - key: HF_TOP_K
+        value: 50
+      - key: HUGGINGFACE_API_KEY
+        sync: false
