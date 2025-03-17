@@ -29,7 +29,7 @@ interface Message {
 
 // API URL Configuration
 const API_URL = import.meta.env.PROD
-  ? 'https://anythingboes.web.app/' // Firebase Hosting domain (correct)
+  ? 'https://anything-boes.web.app/' // Firebase Hosting domain (correct)
   : '/api'; // Local development
 
 function App() {
