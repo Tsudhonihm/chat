@@ -44,4 +44,4 @@ An AI-powered chat application built with React, TypeScript, and Flask.
 
 ## License
 
-MIT
+MIT# chat
