@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "anythingboes"
-  }
+    "default": "anything-boes",
+    "deploy": "anything-boes"
+  },
+  "targets": {},
+  "etags": {}
 }
