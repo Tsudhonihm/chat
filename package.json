@@ -1,5 +1,5 @@
 {
-  "name": "anything-boes-chat",
+  "name": "chat",
   "private": false,
   "version": "1.0.0",
   "type": "module",
@@ -33,7 +33,11 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.8.2",
+<<<<<<< HEAD
     "vite": "^6.2.2"
+=======
+    "vite": "^6.2.1"
+>>>>>>> b38fd2fabddac7faf93aed3db5b7333d8d10c4c9
   },
   "overrides": {
     "follow-redirects": "^1.15.6",
